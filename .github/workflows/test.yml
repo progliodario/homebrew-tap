@@ -1,0 +1,22 @@
+name: Test the cask
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
+
+jobs:
+  cask:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install and check the app
+        run: |
+          brew tap-new local/test
+          cp Casks/yt-grabber.rb "$(brew --repository local/test)/Casks/"
+          brew install --cask local/test/yt-grabber
+          test -d /Applications/YT-Grabber.app
+          xattr /Applications/YT-Grabber.app
+          brew uninstall --cask yt-grabber
+          test ! -d /Applications/YT-Grabber.app && echo "install and uninstall OK"
