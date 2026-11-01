@@ -1,6 +1,6 @@
 cask "yt-grabber" do
-  version "1.2.0"
-  sha256 "450a598c55f4638a9f429d2c6b0f33e0148939af9c37c42036a508f7130ccae6"
+  version "1.3.0"
+  sha256 "fd74da496b15acb05b232e07572aab67dc37fb4b7b47546aa96a65f84f124560"
 
   url "https://github.com/progliodario/YT-Grabber/releases/download/v#{version}/YT-Grabber-macOS.zip"
   name "YT Grabber"
